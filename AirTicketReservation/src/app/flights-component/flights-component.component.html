@@ -1,0 +1,45 @@
+
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+<div class="col-md-8">
+  <h2 style="text-align: center">Welcome to Online Air Ticket Reservation</h2>
+  <br/>
+  <h4 style="text-align: center">Displaying all Airlines across the world</h4>
+
+  <table style="width:100%" class="table table-striped" border="1">
+    <thead>
+        <tr style="text-align: center">
+            <th>FlightId</th>
+            <th>Source</th>
+            <th>Destination</th>
+            <th>Dep Date</th>
+            <th>Arr Date</th>
+            <th></th>
+          </tr>
+    </thead>
+
+    <tbody>
+        <tr *ngFor="let flights of flightData; let i = index" style="text-align: center" [style.background-color]="color == 1? i == selectedRow? '':'':i == selectedRow? 'red':''">
+            <td>{{flights.flightId | id}}</td>
+            <td>{{flights.source}}</td>
+            <td>{{flights.destination}}</td>
+            <td>{{flights.departureDate | date}}</td>
+            <td>{{flights.arrivalDate | date}}</td>
+            <td>
+              <button type="button" (click)="showFlight(flights, i)" class="btn btn-primary">Show Details</button>
+            </td>
+          </tr>
+    </tbody>
+  </table>
+</div>
+<br><br><br><br><br>
+<div *ngIf="show">
+<flight-details [chosenFlight]="displayFlight"></flight-details>
+</div>

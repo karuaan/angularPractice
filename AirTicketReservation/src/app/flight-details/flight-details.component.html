@@ -1,0 +1,31 @@
+<div class="col-md-4">
+    <h3 style="text-align: center">The Deatils of Flight: {{chosenFlight.flightId}}</h3>
+    <table border=1 class="table table-striped">
+      <tr style="text-align: center">
+        <th>Source:</th>
+        <td>{{chosenFlight.source}}</td>
+      </tr>
+      <tr style="text-align: center">
+        <th>Destination:</th>
+        <td>{{chosenFlight.destination}}</td>
+      </tr>
+      <tr style="text-align: center">
+        <th>Dep Date:</th>
+        <td>{{chosenFlight.departureDate | date:'medium'}}</td>
+      </tr>
+      <tr style="text-align: center">
+        <th>Arr Date:</th>
+        <td>{{chosenFlight.arrivalDate | date:'medium'}}</td>
+      </tr>
+      <tr style="text-align: center">
+        <th>Base Fare:</th>
+        <td>{{chosenFlight.baseFare}}</td>
+      </tr>
+      <tr style="text-align: center">
+        <th>Seats Available:</th>
+        <td>{{chosenFlight.seatsAvailable}}</td>
+      </tr>
+    </table>
+  </div>
+
+
