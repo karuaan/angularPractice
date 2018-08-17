@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { flight } from './flight';
 import { mockFlights } from './mock-flights';
+import { FlightServiceService } from '../flight-service.service';
 
 @Component({
   selector: 'app-flights-component',
@@ -15,7 +16,7 @@ export class FlightsComponentComponent implements OnInit {
   selectedRow: number;
   color: number = 1;
 
-  constructor() { }
+  constructor(private flightService:FlightServiceService) { }
 
   showFlight(Flight: flight, index: number)
   {
@@ -25,6 +26,7 @@ export class FlightsComponentComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.flightService.getAllFLights().then(response => this.flightData = response);
   }
 
 }
